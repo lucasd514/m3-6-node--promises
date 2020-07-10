@@ -7,7 +7,7 @@ require("dotenv").config();
 const getPositionFromAddress = (address) => {
   const requestObj = {
     q: address,
-    key: "a55df9ce8238421bb0b6d4b2125fa4b8",
+    key: "",
   };
   return opencage
     .geocode(requestObj)

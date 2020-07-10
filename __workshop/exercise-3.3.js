@@ -8,7 +8,7 @@ function getAddressFromPosition(lat, lng) {
   const test1 = `${lat}, ${lng}`;
   console.log(test1);
   const requestObj = {
-    key: "a55df9ce8238421bb0b6d4b2125fa4b8",
+    key: "",
     q: test1,
   };
   return opencage

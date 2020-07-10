@@ -1,18 +1,21 @@
 // Exercise 3.2 - `getAddressPosition`
 // ---------------------------------
 
-const opencage = require('opencage-api-client');
-require('dotenv').config();
+const opencage = require("opencage-api-client");
+require("dotenv").config();
 
 const getPositionFromAddress = (address) => {
   const requestObj = {
-    key: '<MY_API_KEY>',
-    q: '<QUERY_STRING>',
+    q: address,
+    key: "a55df9ce8238421bb0b6d4b2125fa4b8",
   };
-
-  // return something...
+  return opencage
+    .geocode(requestObj)
+    .then((response) => response.results[0].geometry)
+    .catch((error) => {
+      console.log("error", error.message);
+    });
 };
-
 getPositionFromAddress(
-  '1455 Boulevard de Maisonneuve O, Montréal, QC H3G 1M8'
+  "Piazza del Colosseo, 1, 00184 Roma RM, Italy"
 ).then((response) => console.log(response));

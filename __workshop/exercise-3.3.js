@@ -5,7 +5,7 @@ const opencage = require("opencage-api-client");
 require("dotenv").config();
 
 function getAddressFromPosition(lat, lng) {
-  const test1 = lat + ", " + lng;
+  const test1 = `${lat}, ${lng}`;
   console.log(test1);
   const requestObj = {
     key: "a55df9ce8238421bb0b6d4b2125fa4b8",
@@ -13,13 +13,13 @@ function getAddressFromPosition(lat, lng) {
   };
   return opencage
     .geocode(requestObj)
-    .then((response) => response.results[0])
+    .then((response) => response.results[0].formatted)
     .catch((error) => {
       console.log("error", error.message);
     });
 }
 // return ...
 
-getAddressFromPosition("45.5580", "73.5519").then((response) =>
+getAddressFromPosition("45.5580", "-73.5519").then((response) =>
   console.log(response)
 );
